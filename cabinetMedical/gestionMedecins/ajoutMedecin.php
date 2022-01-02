@@ -9,7 +9,7 @@ include '../connectionBD.php';
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../css/stylesheet.css" />
-        <title>Ajouter Usager</title>
+        <title>Ajouter Medecin</title>
     </head>
 
 
@@ -19,7 +19,7 @@ include '../connectionBD.php';
 
 
         
-            <?php  include('../formulaires/formulaireAjoutUsager.php'); ?>
+            <?php  include('../formulaires/formulaireAjoutMedecin.php'); ?>
 
             
 

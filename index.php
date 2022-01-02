@@ -38,6 +38,9 @@ include 'cabinetMedical/connectionBD.php';
 					<form method="post" action="gestionUsagers.php">
 						<input class="btn" type="submit" name="pageGestionUsagers" id="pageGestionUsagersBtn" value="Gestion des usagers" ><br/>
 					</form>
+                    <form method="post" action="gestionMedecins.php">
+						<input class="btn" type="submit" name="pageGestionMedecins" id="pageGestionUMedecinsBtn" value="Gestion des Medecins" ><br/>
+					</form>
 				</div>
         <?php endif; ?>
 	    

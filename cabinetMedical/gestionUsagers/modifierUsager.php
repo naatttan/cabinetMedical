@@ -9,9 +9,11 @@ include '../connectionBD.php';
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../css/stylesheet.css" />
-        <title>Ajouter Usager</title>
+        <title>Modifier Usager</title>
     </head>
 
+    <?php 
+    extract($_POST);?>
 
     <body>
         <?php if(isset($_SESSION['loggedUser'])): ?>
@@ -19,7 +21,7 @@ include '../connectionBD.php';
 
 
         
-            <?php  include('../formulaires/formulaireAjoutUsager.php'); ?>
+            <?php  include('../formulaires/formulaireModifierUsager.php'); ?>
 
             
 
