@@ -47,21 +47,36 @@ include 'cabinetMedical/connectionBD.php';
 			$usagers = $q->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
+        <?php
+        $q2 = $db->prepare("SELECT medecin.id_medecin, medecin.nom_medecin FROM medecin; ");
+        $q2->execute();
+        $medecins = $q2->fetchAll(PDO::FETCH_ASSOC);
+
+        function searchForId($id, $array) {
+            foreach ($array as $key) {
+                if ($key['id_medecin'] == $id) {
+                    return $key;
+                }
+            }
+        }
+
+        ?>
+
         <div class='boxAffichage'>
 
             <table>
 
                 <tr > 
-                    <td>num_usager</td>
+                    <td>Civilité</td>
                     <td>Nom</td>
                     <td>Prenom</td>
+                    <td>Telephone</td>
                     <td>Adresse</td>
                     <td>Ville</td>
                     <td>Code Postal</td>
                     <td>Date de naissance</td>
                     <td>Lieu de naissance</td>
-                    <td>Numéro de securité sociale</td>
-                    <td>Telephone</td>
+                    <td>Numéro de securité sociale</td>                   
                     <td>Medecin referent</td>
                 </tr>
 
@@ -69,18 +84,30 @@ include 'cabinetMedical/connectionBD.php';
 				<?php
                     foreach($usagers as $usagerC){
                         echo '<tr>';
-                        foreach($usagerC as $valeurC)
-                            echo '<td>',$valeurC, '</td>';
-                        $id = $usagerC['id_usager'];
-                        echo '<td>' ,
-                            '<form method="post" action="cabinetMedical/gestionUsagers/scriptSupprimerUsager.php"> 
-                                <button class="btn2" type="submit" name="id" value="',$id,'">Supprimer</button>
-                            </form>';
+                            echo '<td>'.$usagerC['civilite_usager'].'</td>';
+                            echo '<td>'.$usagerC['nom_usager'].'</td>';
+                            echo '<td>'.$usagerC['prenom_usager'].'</td>';
+                            echo '<td>'.$usagerC['telephone_usager'].'</td>';
+                            echo '<td>'.$usagerC['adresse_usager'].'</td>';
+                            echo '<td>'.$usagerC['ville_usager'].'</td>';
+                            echo '<td>'.$usagerC['codePostal_usager'].'</td>';
+                            echo '<td type="date">'.$usagerC['dateNaissance_usager'].'</td>';
+                            echo '<td>'.$usagerC['lieuNaissance_usager'].'</td>';
+                            echo '<td>'.$usagerC['numSecu_usager'].'</td>';
+                            echo '<td>'.searchForId($usagerC['medecinReferent_usager'], $medecins)['nom_medecin'].'</td>';
 
-                        echo '<form method="post" action="cabinetMedical/gestionUsagers/modifierUsager.php">',
-                            '<button class="btn2" name="id" value="',$id,'">Modifier</button>
-                            </form>', '</td>';  
-
+                            $id = $usagerC['id_usager'];                            
+                            echo '<td>' ,
+                                '<form method="post" action="cabinetMedical/gestionUsagers/scriptSupprimerUsager.php"> 
+                                    <button class="btn2" type="submit" name="id" value="',$id,'">Supprimer</button>
+                                </form>';
+                            echo '<form method="post" action="cabinetMedical/gestionUsagers/modifierUsager.php">',
+                                '<button class="btn2" name="id" value="',$id,'">Modifier</button>
+                                </form>';  
+                            echo '<form method="post" action="cabinetMedical/gestionUsagers/creerRdv.php"> 
+                                <button class="btn2" type="submit" name="id_usager1" value="',$id,'">Creer un rendez-vous</button>
+                                </form>',
+                                '</td>';
                         echo "</tr>";
                     }
 
