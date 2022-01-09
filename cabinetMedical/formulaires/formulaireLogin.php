@@ -1,4 +1,4 @@
-<p>connectez vous !</p>
+
 	<h1> Connexion </h1>
 	<form method="post" class='box' action='index.php'>
 		<input class="login" type="identifiant" name="cidentifiant" id="cidentifiant" placeholder="Votre identifiant" required><br/>

@@ -24,17 +24,11 @@ include '../connectionBD.php';
                 include('../formulaires/formulaireCreerRdv.php'); 
             ?>
 
-            
-
-
             <div class='box'>
-                        <form method="post" action="../../index.php">
-                            <input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Accueil" ><br/>
+                        <form method="post" action="../../gestionUsagers.php">
+                            <input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Retour" ><br/>
                         </form>
             </div>
-            
-            
-
             
         <?php else: ?>
 

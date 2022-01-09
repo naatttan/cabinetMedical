@@ -25,7 +25,7 @@ include 'cabinetMedical/connectionBD.php';
     <p>
         <form method="post">
             <input class="searchBar" type="search" name="recherche" id="recherche">
-            <input class="btn" type="submit" name="rechercher" id="rechercher" value="R" >
+            <input class="btn" type="submit" name="rechercher" id="rechercher" value="Rechercher" >
         </form>
     </p>
     </div>    
@@ -47,21 +47,21 @@ include 'cabinetMedical/connectionBD.php';
 
         <div class='boxAffichage'>
 
-            <table>
+            <table class="customers">
 
                 <tr > 
-                    <td>num_medecin</td>
-                    <td>Civilite</td>
-                    <td>Nom</td>
-                    <td>Prenom</td>
+                    <th><strong>Civilite</strong></th>
+                    <th><strong>Nom</strong></th>
+                    <th><strong>Prenom</strong></th>
                 </tr>
 
 
 				<?php
                     foreach($medecins as $medecinC){
                         echo '<tr>';
-                        foreach($medecinC as $valeurC)
-                            echo '<td>',$valeurC, '</td>';
+                        echo '<td>',$medecinC['civilite_medecin'], '</td>';
+                        echo '<td>',$medecinC['nom_medecin'], '</td>';
+                        echo '<td>',$medecinC['prenom_medecin'], '</td>';
                         $id = $medecinC['id_medecin'];
                         echo '<td>' ,
                             '<form method="post" action="cabinetMedical/gestionMedecins/scriptSupprimerMedecin.php"> 
@@ -84,15 +84,6 @@ include 'cabinetMedical/connectionBD.php';
                         <input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Ajouter un Medecin" ><br/>
 					</form>
 		</div>
-
-
-        <div class='box'>
-					<form method="post" action="index.php">
-						<input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Accueil" ><br/>
-					</form>
-		</div>
-        
-        
 
         <?php else: ?>
 

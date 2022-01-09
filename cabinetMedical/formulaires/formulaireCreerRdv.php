@@ -3,12 +3,10 @@ $q = $db->prepare("Select * FROM usager WHERE id_usager = :id");
 $q->execute([':id'=> $id_usager1]);
 $usager = $q->fetch(PDO::FETCH_ASSOC);
 extract($usager);
-print_r($usager);
 
 $q2 = $db->prepare("SELECT medecin.id_medecin, medecin.nom_medecin FROM medecin; ");
 $q2->execute();
 $medecins = $q2->fetchAll(PDO::FETCH_ASSOC);
-print_r($medecins);
 
 function searchForId($id, $array) {
     foreach ($array as $key) {

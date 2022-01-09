@@ -17,17 +17,13 @@ include '../connectionBD.php';
 
     <body>
         <?php if(isset($_SESSION['loggedUser'])): ?>
-            
-
-
-        
-            <?php  include('../formulaires/formulaireModifierUsager.php'); ?>
-
-            <div class='box'>
-                        <form method="post" action="../../gestionUsagers.php">
+          <?php  include('../formulaires/formulaireModifierRdv.php'); ?>
+          <div class='box'>
+                        <form method="post" action="../../index.php">
                             <input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Retour" ><br/>
                         </form>
             </div>
+                      
         <?php else: ?>
 
             <div class='box'>

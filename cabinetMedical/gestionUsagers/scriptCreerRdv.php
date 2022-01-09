@@ -35,7 +35,7 @@ if($rdvEnCours){
                 <button type="submit">Retour</button>
                 </form>';
 }else{
-header('Location: ../../gestionUsagers.php');
+header('Location: ../../index.php');
 $q = $db->prepare("INSERT INTO rdv(date_RDV, heure_RDV, duree_RDV, objet_RDV, medecin_RDV, usager_RDV) 
 VALUES (:daterdv, :heurerdv, :dureerdv, :objetrdv, :medecinrdv, :usagerrdv);");
 			$q->execute([':daterdv' => $cdate_rdv,

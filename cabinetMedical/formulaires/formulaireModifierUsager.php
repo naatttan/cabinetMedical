@@ -9,14 +9,12 @@ $q = $db->prepare("Select * FROM usager WHERE id_usager = :id");
 $q->execute([':id'=> $id]);
 $usager = $q->fetch(PDO::FETCH_ASSOC);
 extract($usager);
-print_r($usager);
 ?>
 
 <?php
 $q2 = $db->prepare("SELECT medecin.id_medecin, medecin.nom_medecin FROM medecin; ");
 $q2->execute();
 $medecins = $q2->fetchAll(PDO::FETCH_ASSOC);
-print_r($medecins);
 
 function searchForId($id, $array) {
     foreach ($array as $key) {
@@ -41,12 +39,12 @@ function searchForId($id, $array) {
     <p>Téléphone : <input class="login" type="tel" name="ctelephone_usager" id="ctelephone_usager" placeholder="Numéro de téléphone" pattern="[0-9]{10}" <?php echo 'value="'.$telephone_usager.'"' ?> required><br/></p>
     <input type = "hidden" name="id_usager" <?php echo 'value="'.$id.'"' ?>>
 
-    <select name="ccivilite_usager" class="login">
+    <p>Civilite : <select name="ccivilite_usager" class="login">
         <option value="Monsieur" >Monsieur</options>
         <option value="Madame" >Madame</options>
-    </select>
+    </select></p>
 
-    <select name="cmedecin_usager" class="login">
+    <p>Medecin referent : <select name="cmedecin_usager" class="login">
     <?php if($medecinReferent_usager != 0){
         echo '<option value="'.$medecinReferent_usager.'" >'.searchForId($medecinReferent_usager, $medecins)['nom_medecin'].'</options>';
     } ?>
@@ -56,7 +54,7 @@ function searchForId($id, $array) {
             echo '<option value="'.$id_medecin.'" >'.$medecinC['nom_medecin'].'</option>';
     }  
     ?>
-    </select>
+    </select></p><br/>
 
 	<input class="btn" type="submit" name="enregistrerUserBtn" id="enregistrerUser" value="Enregistrer" ><br/>
 </form>

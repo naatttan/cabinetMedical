@@ -2,7 +2,6 @@
 $q = $db->prepare("SELECT medecin.id_medecin, medecin.nom_medecin FROM medecin; ");
 $q->execute();
 $medecins = $q->fetchAll(PDO::FETCH_ASSOC);
-print_r($medecins)
 ?>
 
 <h1> Ajout Usager </h1>
@@ -17,19 +16,19 @@ print_r($medecins)
     <p>Lieu de naissance : <input class="login" type="text" name="clieuNaissance_usager" id="clieuNaissance_usager" placeholder="Lieu de naissance" ><br/></p>
     <p>Numéro de sécu : <input class="login" type="text" name="cnumSecu_usager" id="cnumSecu_usager" placeholder="Numéro de sécurité sociale" pattern="[0-9]{15}" required><br/></p>
     <p>Téléphone : <input class="login" type="tel" name="ctelephone_usager" id="ctelephone_usager" placeholder="Numéro de téléphone" pattern="[0-9]{10}" required><br/></p>
-    <select name="ccivilite_usager" class="login">
+    <p>Civilite : <select name="ccivilite_usager" class="login">
         <option value="Monsieur" >Monsieur</options>
         <option value="Madame" >Madame</options>
-    </select>
+    </select></p>
 
-    <select name="cmedecin_usager" class="login">
+    <p>Medecin referent : <select name="cmedecin_usager" class="login">
     <option value="0" >Aucun</options>
     <?php foreach($medecins as $medecinC){
             $id_medecin = $medecinC['id_medecin'];
             echo '<option value="'.$id_medecin.'" >'.$medecinC['nom_medecin'].'</option>';
     }  
     ?>
-    </select>
+    </select></p> <br/>
 
 	<input class="btn" type="submit" name="enregistrerUserBtn" id="enregistrerUser" value="Enregistrer" ><br/>
 </form>

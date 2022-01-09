@@ -8,7 +8,7 @@ include 'cabinetMedical/connectionBD.php';
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- <link rel="stylesheet" href="css/stylesheet.css" /> -->
+        <link rel="stylesheet" href="css/stylesheet.css" />
         <title>Gestion des usagers</title>
     </head>
 
@@ -25,7 +25,7 @@ include 'cabinetMedical/connectionBD.php';
     <p>
         <form method="post">
             <input class="searchBar" type="search" name="recherche" id="recherche">
-            <input class="btn" type="submit" name="rechercher" id="rechercher" value="R" >
+            <input class="btn" type="submit" name="rechercher" id="rechercher" value="Rechercher" >
         </form>
     </p>
     </div>    
@@ -64,20 +64,20 @@ include 'cabinetMedical/connectionBD.php';
 
         <div class='boxAffichage'>
 
-            <table>
+            <table class="customers">
 
                 <tr > 
-                    <td>Civilité</td>
-                    <td>Nom</td>
-                    <td>Prenom</td>
-                    <td>Telephone</td>
-                    <td>Adresse</td>
-                    <td>Ville</td>
-                    <td>Code Postal</td>
-                    <td>Date de naissance</td>
-                    <td>Lieu de naissance</td>
-                    <td>Numéro de securité sociale</td>                   
-                    <td>Medecin referent</td>
+                    <th><strong>Civilité</strong></th>
+                    <th><strong>Nom</strong></th>
+                    <th><strong>Prenom</strong></th>
+                    <th><strong>Telephone</strong></th>
+                    <th><strong>Adresse</strong></th>
+                    <th><strong>Ville</strong></th>
+                    <th><strong>Code Postal</strong></th>
+                    <th><strong>Date de naissance</strong></th>
+                    <th><strong>Lieu de naissance</strong></th>
+                    <th><strong>Numéro de securité sociale</strong></th>                   
+                    <th><strong>Medecin referent</strong></th>
                 </tr>
 
 
@@ -121,14 +121,6 @@ include 'cabinetMedical/connectionBD.php';
 					</form>
 		</div>
 
-
-        <div class='box'>
-					<form method="post" action="index.php">
-						<input class="btn" type="submit" name="pageAccueil" id="pageAccueilBtn" value="Accueil" ><br/>
-					</form>
-		</div>
-        
-        
 
         <?php else: ?>
 
